@@ -376,6 +376,14 @@ main {
     font-size: 2rem;
   }
 
+  .hero-role {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--brass);
+    margin: 0 0 20px;
+  }
+
   .nav-toggle {
     display: flex;
     flex-direction: column;
