@@ -1,0 +1,415 @@
+:root {
+  --ink: #1B2A2F;
+  --paper: #F5F3EC;
+  --slate: #2F4858;
+  --brass: #8A6D3B;
+  --rule: #DAD5C8;
+  --paper-raised: #FBFAF6;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --content-width: 700px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--brass);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138, 109, 59, 0.35);
+}
+
+a:hover, a:focus-visible {
+  border-bottom-color: var(--brass);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--slate);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* ---------- Side nav ---------- */
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  padding: 48px 32px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidenav-name a {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: none;
+  display: block;
+}
+
+.sidenav-tagline {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+.sidenav ul {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+}
+
+.sidenav li { margin-bottom: 14px; }
+
+.sidenav .nav-link {
+  color: var(--ink);
+  border-bottom: none;
+  font-size: 0.92rem;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.sidenav .nav-link:hover,
+.sidenav .nav-link.active {
+  opacity: 1;
+  color: var(--brass);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* ---------- Main layout ---------- */
+
+main {
+  margin-left: 240px;
+  padding: 0 64px 80px;
+}
+
+.hero {
+  max-width: var(--content-width);
+  padding-top: 96px;
+  padding-bottom: 56px;
+}
+
+.hero-eyebrow {
+  font-size: 0.82rem;
+  color: var(--brass);
+  margin: 0 0 18px;
+  font-style: italic;
+  font-family: var(--serif);
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  max-width: 560px;
+  color: var(--ink);
+}
+
+.hero-links {
+  margin-top: 28px;
+  display: flex;
+  gap: 28px;
+}
+
+.section {
+  max-width: var(--content-width);
+  padding: 56px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.section h2 .num {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--brass);
+  font-weight: 500;
+}
+
+.section-body p {
+  margin: 0 0 16px;
+  max-width: 620px;
+}
+
+/* ---------- Timeline (CV) ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--rule);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 32px 28px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-date {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+
+.timeline-item h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.timeline-item p {
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ---------- Publications ---------- */
+
+.pub-list {
+  list-style: decimal;
+  padding-left: 22px;
+  margin: 0;
+}
+
+.pub-list li {
+  margin-bottom: 24px;
+  padding-left: 6px;
+}
+
+.pub-title {
+  margin: 0 0 6px;
+}
+
+.pub-links {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Talks ---------- */
+
+.talk-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.talk-list li {
+  display: flex;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.talk-list li:first-child { border-top: none; }
+
+.talk-date {
+  flex: 0 0 90px;
+  font-size: 0.85rem;
+  color: var(--slate);
+  padding-top: 3px;
+}
+
+.talk-list h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.talk-list p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* ---------- Projects ---------- */
+
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-list li {
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.project-list li:first-child { border-top: none; }
+
+.project-list h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.project-list p {
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ---------- Hobbies ---------- */
+
+.hobby-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.hobby-list li {
+  margin-bottom: 8px;
+}
+
+/* ---------- Contact ---------- */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.contact-list li:first-child { border-top: none; }
+
+.contact-list span {
+  flex: 0 0 140px;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+.footer {
+  max-width: var(--content-width);
+  padding: 32px 0 0;
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 78%;
+    max-width: 300px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    background: var(--paper-raised);
+    z-index: 20;
+    box-shadow: 2px 0 24px rgba(0,0,0,0.08);
+  }
+
+  .sidenav.open {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0 24px 60px;
+  }
+
+  .hero {
+    padding-top: 88px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 30;
+    width: 40px;
+    height: 40px;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+    margin: 0 auto;
+  }
+
+  .talk-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .talk-date { flex: none; }
+
+  .contact-list li {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
